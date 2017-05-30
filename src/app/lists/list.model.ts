@@ -3,9 +3,9 @@ export class List {
     public listDescription: string;
     public isDone: boolean;
 
-    constructor(listTopic: string, listDescription:string) {
+    constructor(listTopic: string, listDescription:string, isDone:boolean) {
         this.listTopic = listTopic;
         this.listDescription = listDescription;
-        this.isDone = false
+        this.isDone = isDone
     }
 }

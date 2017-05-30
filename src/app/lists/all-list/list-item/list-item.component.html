@@ -1,2 +1,5 @@
-<a href="#" class="list-group-item list-group-item-action" (click)="selectList()">{{list.listTopic}}</a>
+<a  
+    class="list-group-item list-group-item-action {{list.isDone ? 'list-group-item-success' : ''}} list-cursor"
+    (click)="selectList($event, list)">
+    {{list.listTopic}}</a>
 

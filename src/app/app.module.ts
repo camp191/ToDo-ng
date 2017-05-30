@@ -19,7 +19,7 @@ import { ListItemComponent } from './lists/all-list/list-item/list-item.componen
     ListsComponent,
     AllListComponent,
     ListDetailComponent,
-    ListItemComponent
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,

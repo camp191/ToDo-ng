@@ -1,9 +1,14 @@
 <div class="row">
   <div class="col-md-4">
-    <app-all-list [lists]="lists" (selectedList)="listSelect($event)"></app-all-list>
+    <app-all-list 
+      [lists]="lists" 
+      (selectedList)="listSelect($event)"></app-all-list>
   </div>
   <div class="col-md-8">
-    <app-list-detail [listSelected]="listSelected"></app-list-detail>
+    <app-list-detail 
+      [listSelected]="listSelected" 
+      (listDelete)="listDeleted($event)"
+      (listDone)="doneList($event)"></app-list-detail>
   </div>
 </div>
 

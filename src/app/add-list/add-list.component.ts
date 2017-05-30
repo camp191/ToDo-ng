@@ -39,7 +39,7 @@ export class AddListComponent implements OnInit {
       return alert('Please Fill the Input')
     }
 
-    this.newList = new List(this.topicTodo, this.detailTodo)
+    this.newList = new List(this.topicTodo, this.detailTodo, false)
     this.todoAdd.emit(this.newList)
     this.topicTodo = ""
     this.detailTodo = ""

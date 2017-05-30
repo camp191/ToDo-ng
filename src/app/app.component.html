@@ -5,7 +5,11 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <app-lists [lists]="lists"></app-lists>
+      <app-lists 
+        [lists]="lists" 
+        (deleteList)="listDeleted($event)"
+        (listDone)="listDone($event)"
+        ></app-lists>
     </div>
   </div>
 </div>

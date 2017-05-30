@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { List } from "app/lists/list.model";
 
 @Component({
@@ -8,7 +8,10 @@ import { List } from "app/lists/list.model";
 })
 export class ListsComponent implements OnInit {
   @Input() lists:List[]
-  listSelected: List 
+  @Input('doneList') done: List
+  @Output() deleteList = new EventEmitter<List>()
+  @Output() listDone = new EventEmitter<List>()
+  listSelected: List
 
   constructor() { }
 
@@ -17,5 +20,13 @@ export class ListsComponent implements OnInit {
 
   listSelect(list) {
     this.listSelected = list
+  }
+
+  listDeleted(list) {
+    this.deleteList.emit(list)
+  }
+
+  doneList(list) {
+    this.listDone.emit(list)
   }
 }

@@ -8,11 +8,23 @@ import { List } from "app/lists/list.model";
 })
 export class AppComponent {
   lists: List[] = [
-    new List('Hello', 'From the other side'),
-    new List('Good Morning', 'From the same side')
+    new List('Hello', 'From the other side', false),
+    new List('Good Morning', 'From the same side', false)
   ]
+  doneList: List
 
   addTodo(list) {
     this.lists.push(list)
+  }
+
+  listDeleted(listDelete) {
+    this.lists = this.lists.filter(list => {
+      return list !== listDelete
+    })
+  }
+
+  listDone(listDone) {
+    this.listDeleted(listDone)
+    this.lists.push(new List(listDone.listTopic, listDone.listDescription, true))
   }
 }
