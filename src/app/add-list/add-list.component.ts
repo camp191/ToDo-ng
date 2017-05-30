@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { List } from "app/lists/list.model";
 
 @Component({
   selector: 'app-add-list',
@@ -6,10 +7,12 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./add-list.component.css']
 })
 export class AddListComponent implements OnInit {
+  @Output() todoAdd = new EventEmitter<List>()
   @ViewChild('todoForm') todoForm: ElementRef
   @ViewChild('btnShowForm') btnShowForm: ElementRef
   topicTodo = ""
   detailTodo = ""
+  newList: List
 
   constructor() { }
 
@@ -29,6 +32,17 @@ export class AddListComponent implements OnInit {
   showForm() {
     this.todoForm.nativeElement.hidden = false
     this.btnShowForm.nativeElement.hidden = true
+  }
+
+  addList() {
+    if(this.topicTodo === "" || this.detailTodo === "") {
+      return alert('Please Fill the Input')
+    }
+
+    this.newList = new List(this.topicTodo, this.detailTodo)
+    this.todoAdd.emit(this.newList)
+    this.topicTodo = ""
+    this.detailTodo = ""
   }
 
 }

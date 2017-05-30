@@ -1,11 +1,11 @@
 <app-header></app-header>
 <div class="container">
   <div class="row box-center">
-    <app-add-list></app-add-list>
+    <app-add-list (todoAdd)="addTodo($event)"></app-add-list>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <app-lists></app-lists>
+      <app-lists [lists]="lists"></app-lists>
     </div>
   </div>
 </div>

@@ -1,3 +1,15 @@
-<p>
-  list-detail works!
-</p>
+<div class="container mt-3">
+  <h3 class="text-center">List Detail</h3>
+  <p *ngIf="!listSelected" class="text-center mt-5">
+    Please Select List...
+  </p>
+  <div *ngIf="listSelected">
+    <p>Topic: {{listSelected.listTopic}}</p>
+    <p>Description: {{listSelected.listDescription}}</p>
+    <p>Status: {{listSelected.isDone ? "Done" : "Not Done"}}</p>
+  </div>
+  <div *ngIf="listSelected" class="text-center mt-3">
+    <button class="btn btn-success">Done</button>
+    <button class="btn btn-danger">Delete</button>
+  </div>
+</div>

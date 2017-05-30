@@ -1,6 +1,6 @@
 <div>
   <form>
-    <div #todoForm>
+    <div #todoForm hidden>
       <div class="form-group">
         <label for="TodoTopic">Todo Topic:</label>
         <input type="text" [(ngModel)]="topicTodo" name="topicTodo" class="form-control">
@@ -10,13 +10,13 @@
         <textarea class="form-control" [(ngModel)]="detailTodo" name="detailTodo" cols="50" rows="5"></textarea>
       </div>
       <div class="text-center">
-        <button class="btn btn-primary">Add List</button>
+        <button class="btn btn-primary" (click)="addList()">Add List</button>
         <button class="btn btn-warning" (click)="clearInput()">Clear Form</button>
         <button class="btn btn-success" (click)="hiddenForm()">Hide Form</button>
       </div>
     </div>
     <div class="perfect-centering">
-      <button #btnShowForm hidden class="btn btn-success show-btn" (click)="showForm()">Show Add List Form</button>
+      <button #btnShowForm class="btn btn-success show-btn" (click)="showForm()">Show Add List Form</button>
     </div>
   </form>
 </div>
