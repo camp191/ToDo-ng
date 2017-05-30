@@ -1,0 +1,9 @@
+.show-btn {
+    max-width: 100%;
+    width: 300px;
+}
+
+.perfect-centering {
+     left:0%;
+     transform: translateX(25%)
+}
